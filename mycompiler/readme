@@ -1,0 +1,28 @@
+學號姓名：408410035 鄭宇辰
+繳交檔案：
+1. myCompiler.g  ANTLR grammar file
+2. makefile
+3. readme
+4.myCompiler_test.java 用以測試程式
+5.input1.c ~ input5.c 共5個用以當作input
+6.antlr-3.5.2-complete-no-st3.jar
+7.408410035_subsets.docx 408410035_subsets.pdf subset分類方法
+
+make clean -> make run1 ->make run2 ->make run3 ->make run4->make run5
+照以上順序在terminal執行即可依序測試5個檔案 
+每次可以用make run 指令來測試編譯出來的檔案
+跟作業要求不同的是：在測試程式中會把文本輸出到 aout.ll 方便檢查跟執行
+
+
+compiler 支援以下內容轉換為llvm ir
+1.2種資料型態 除了作業要求的int之外還支援double 
+2.Statements for arithmetic computation. (ex: a = b+2*(100-1))
+3.Comparison expression. (ex: a > b)
+4.if-then-else program construct 並且支援巢狀迴圈 如input3的測試
+5.printf() function with one/two parameters. 支援一或二或三個參數
+其中 第二跟第三個變數只能是變數 不能是常數
+而字串中的％d %lf 不一定要對應到變數的資料型態 沒對到也可以執行 但沒對上時輸出不保證正確
+6.變數的宣告 並且不能重複宣告 變數在使用之前沒有宣告的話會發生錯誤 並且可以宣告時賦值 也可以一次宣告多個
+7.不支援整數與浮點數的運算 但是如果是浮點數對上整數常數則可接受
+
+如果程式碼中出現以上支援內容之外的c語言程式碼 例如：陣列 迴圈 printf以外的function call 其他資料型態 等 則有可能發生預期外的錯誤 
